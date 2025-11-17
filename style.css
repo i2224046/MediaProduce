@@ -348,7 +348,7 @@ footer h3 {
     padding: 30px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 600px;
+    max-width: 800px;
     border-radius: 10px;
     position: relative;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -364,23 +364,64 @@ footer h3 {
     cursor: pointer;
 }
 
+/* --- モーダル内の動画リスト --- */
+.modal-video-list {
+    margin-top: 20px;
+    max-height: 60vh; /* リストの最大高さを画面の60%に制限 */
+    overflow-y: auto; /* 高さを超えたらスクロールバーを表示 */
+    padding-right: 15px; /* スクロールバー用の余白 */
+}
+
+.modal-video-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ccc;
+}
+.modal-video-item:last-child {
+    border-bottom: none;
+}
+
+.video-player {
+    flex-shrink: 0; /* 動画プレイヤーが縮まないようにする */
+}
+
+.video-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+}
+.video-info p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.6;
+}
+
 /* --- 背景動画 --- */
 .video-background {
     position: absolute;
-    top: -100px;
-    left: 0; right: 0;
-    height: 1340px;
+    top: 0; left: 0; width: 100%; height: 100%;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    z-index: 0; /* コンテンツの背景になるように */
 }
 
-.video-background iframe {
-    flex: 1; /* 高さを均等に分割 */
-    width: 100%;
+/* JSで挿入されるiframeのコンテナとiframe自体のスタイル */
+#video-container,
+#video-container iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* 画面アスペクト比に関わらず常に全体を覆うための設定 */
+    width: 177.77vh; /* 16:9 (100vh * 16/9) */
+    min-width: 100vw; 
+    height: 56.25vw; /* 16:9 (100vw * 9/16) */
+    min-height: 100vh;
+    transform: translate(-50%, -50%);
     border: none;
-    object-fit: cover;
     filter: blur(4px); /* 動画にブラー（ぼかし）をかける */
+    pointer-events: none; /* 動画上のクリック操作を無効化 */
 }
 
 .video-overlay {
@@ -388,7 +429,7 @@ footer h3 {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 110%;
     background-color: rgba(255, 255, 255, 0.85); /* 半透明の白を重ねる */
     z-index: 1; /* 動画の上に配置 */
 }

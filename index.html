@@ -25,16 +25,15 @@
         <div id="splash" class="splash">
             <div class="splash-content">
                 <h1>推しを創ろう</h1>
-                <button id="closeSplash" class="splash-button">A4ペライチを読む</button>
+                <button id="closeSplash" class="splash-button">お前らは"創る側"だろ</button>
             </div>
         </div>
 
         <!-- 背景動画コンテナ -->
         <div class="video-background">
             <div class="video-overlay"></div>
-            <iframe src="https://www.youtube.com/embed/cNF2drcONWE?si=132eJ0K3kBWecfaJ&autoplay=1&mute=1&loop=1&playlist=cNF2drcONWE&controls=0&showinfo=0&modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/B3c5DJWKGqs?si=uGjS5l4RueRfAbKC&autoplay=1&mute=1&loop=1&playlist=B3c5DJWKGqs&controls=0&showinfo=0&modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/bw9IFEjJufw?si=lsQxwAR2w9cpIC47&autoplay=1&mute=1&loop=1&playlist=bw9IFEjJufw&controls=0&showinfo=0&modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!-- このコメントと下のdivは以前の修正で追加されたものです。3つのiframeを削除し、以下を配置します -->
+            <div id="video-container"></div> <!-- JavaScriptがここに動画を挿入します -->
         </div>
         <div class="tasuki-wrapper">
             <header class="tasuki">
@@ -69,7 +68,7 @@
                     </div>
                     <div class="image-part">
                         <img id="openModalBtn" src="img_mainvisual_2.webp" alt="ソフトウェアトークのイメージ" class="pasted-image">
-                        <p class="image-caption">（画像をタップで詳しく）</p>
+                        <p class="image-caption">動画がいっぱい</p>
                     </div>
                 </div>
             </section>
@@ -110,21 +109,51 @@
         <!-- モーダルウィンドウ -->
         <div id="detailModal" class="modal">
             <div class="modal-content">
-            <div class="modal-content-wrapper">
                 <span class="close-button">&times;</span>
-                <h2>ソフトウェアトークのキャラクターたち</h2>
-                <p>この画像には、VOCALOID、VOICEROID、CeVIO、SynthesizerVなど、さまざまな音声合成ソフトのキャラクターが描かれています。初音ミクやずんだもん、可不(KAFU)など、人気のキャラクターから、少しマニアックなキャラクターまで様々です。これらのキャラクターは、ユーザーの手によって歌ったり、実況動画でおしゃべりしたりと、多彩な創作活動で活躍しています。</p>
-                <img src="img_mainvisual_2.webp" alt="ソフトウェアトークのイメージ" style="width:100%; border-radius: 5px;">
-                <div class="modal-slide active">
-                    <h2>ソフトウェアトークのキャラクターたち</h2>
-                    <p>この画像には、VOCALOID、VOICEROID、CeVIO、SynthesizerVなど、さまざまな音声合成ソフトのキャラクターが描かれています。初音ミクやずんだもん、可不(KAFU)など、人気のキャラクターから、少しマニアックなキャラクターまで様々です。これらのキャラクターは、ユーザーの手によって歌ったり、実況動画でおしゃべりしたりと、多彩な創作活動で活躍しています。</p>
-                    <img src="img_mainvisual_2.webp" alt="ソフトウェアトークのイメージ" style="width:100%; border-radius: 5px;">
+                <h2>おすすめ動画一覧</h2>
+                <p>ソフトウェアトークの文化がいかに多様で自由か、いくつか動画を紹介します。</p>
+
+                <div class="modal-video-list">
+                    <div class="modal-video-item">
+                        <div class="video-player"><script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm39049971/script?w=320&h=180"></script><noscript><a href="https://www.nicovideo.jp/watch/sm39049971">宇宙人襲来！</a></noscript></div>
+                        <div class="video-info"><h4>宇宙人襲来！</h4><p>9秒シリーズとか色々別シリーズと話が繋がっていて面白い。5年半も毎日9秒の動画を投稿していた人。</p></div>
+                    </div>
+                    <div class="modal-video-item">
+                        <div class="video-player"><script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm35404995/script?w=320&h=180"></script><noscript><a href="https://www.nicovideo.jp/watch/sm35404995">きりたん（20代男性）の夢記録</a></noscript></div>
+                        <div class="video-info"><h4>きりたん（20代男性）の夢記録</h4><p>楽しい日になるね。才能が無いとこんな夢見られない。</p></div>
+                    </div>
+                    <div class="modal-video-item">
+                        <div class="video-player"><script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm44582486/script?w=320&h=180"></script><noscript><a href="https://www.nicovideo.jp/watch/sm44582486">縦動画を見てみんなで時間を無駄にしよう！</a></noscript></div>
+                        <div class="video-info"><h4>縦動画を見てみんなで時間を無駄にしよう！</h4><p>Unityを使い、効率化をして作られているらしい。どの動画もどことなくとがっていて面白い。</p></div>
+                    </div>
+                    <div class="modal-video-item">
+                        <div class="video-player"><script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm41308036/script?w=320&h=180"></script><noscript><a href="https://www.nicovideo.jp/watch/sm41308036">友達【ソフトウェアトーク劇場】</a></noscript></div>
+                        <div class="video-info"><h4>友達【ソフトウェアトーク劇場】</h4><p>テンポ感が素晴らしい。</p></div>
+                    </div>
+                    <div class="modal-video-item">
+                        <div class="video-player"><script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm41197822/script?w=320&h=180"></script><noscript><a href="https://www.nicovideo.jp/watch/sm41197822">食い物の恨みは怖い</a></noscript></div>
+                        <div class="video-info"><h4>食い物の恨みは怖い</h4><p>ストップモーションアニメーション。</p></div>
+                    </div>
+                    <div class="modal-video-item">
+                        <div class="video-player"><script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm40244393/script?w=320&h=180"></script><noscript><a href="https://www.nicovideo.jp/watch/sm40244393">花粉症</a></noscript></div>
+                        <div class="video-info"><h4>花粉症</h4><p>あるあるネタ。</p></div>
+                    </div>
+                    <div class="modal-video-item">
+                        <div class="video-player"><script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm32489042/script?w=320&h=180"></script><noscript><a href="https://www.nicovideo.jp/watch/sm32489042">クリスマスを一人で過ごした後に見る動画　ーGetting Over Itー</a></noscript></div>
+                        <div class="video-info"><h4>クリスマスを一人で過ごした後に見る動画　ーGetting Over Itー</h4><p>対象者は毎年見ましょう。</p></div>
+                    </div>
+                    <div class="modal-video-item">
+                        <div class="video-player"><script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm40520738/script?w=320&h=180"></script><noscript><a href="https://www.nicovideo.jp/watch/sm40520738">ビート板を沈めようとする紲星あかり</a></noscript></div>
+                        <div class="video-info"><h4>ビート板を沈めようとする紲星あかり</h4><p>シュール。</p></div>
+                    </div>
+                    <div class="modal-video-item">
+                        <div class="video-player"><script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm44203347/script?w=320&h=180"></script><noscript><a href="https://www.nicovideo.jp/watch/sm44203347">ゆかりさんが群馬を案内してくれるそうです</a></noscript></div>
+                        <div class="video-info"><h4>ゆかりさんが群馬を案内してくれるそうです</h4><p>旅行系動画。これ以外にももっとVLog的な方面もあります。</p></div>
+                    </div>
                 </div>
-                <div class="modal-slide">
-                    <h2>1次創作もできる</h2>
-                    <p>ソフトウェアトークの文化では、公式設定が最小限であることが多く、キャラクターの性格や関係性はユーザーの解釈に委ねられています。そのため、既存の作品のパロディ（二次創作）だけでなく、自分だけのオリジナルストーリー（一次創作）も非常に盛んです。誰もが「自分の作品の原作者」になれる、創造性の高い趣味と言えます。</p>
+                <div class="modal-final-message">
+                    <p>これらの動画、創ろうと思えば作れます。<br>この大学に来ているということは、何らかの手法は持ち合わせているはずです。<br>4年生はおろか、専門にすら通っていない人に負けていいんですか？</p>
                 </div>
-            </div>
         </div>
     </div>
 
@@ -209,6 +238,24 @@
         closeSplashBtn.onclick = function() {
             splash.classList.add('hidden');
         }
+
+        // --- 背景動画ランダム再生 ---
+        // 3つのYouTube動画IDを配列に格納
+        const videoIds = ['cNF2drcONWE', 'B3c5DJWKGqs', 'bw9IFEjJufw'];
+        // 配列からランダムに1つのIDを選択
+        const randomVideoId = videoIds[Math.floor(Math.random() * videoIds.length)];
+        const videoContainer = document.getElementById('video-container');
+
+        // iframe要素を動的に生成
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${randomVideoId}?si=132eJ0K3kBWecfaJ&autoplay=1&mute=1&loop=1&playlist=${randomVideoId}&controls=0&showinfo=0&modestbranding=1`;
+        iframe.title = "YouTube video player";
+        iframe.frameBorder = "0";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+
+        // 生成したiframeをコンテナに追加
+        videoContainer.appendChild(iframe);
     </script>
 </body>
 </html>
