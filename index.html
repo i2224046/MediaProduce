@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A4印刷用ページ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- マスキングテープ風フィルター用のSVG -->
+    <svg style="position:absolute; width:0; height:0;">
+        <defs>
+            <filter id="masking-tape-filter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.02 0.5" numOctaves="1" result="turbulence" />
+                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="5" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+    <div class="page">
+        <!-- スプラッシュスクリーン -->
+        <div id="splash" class="splash">
+            <div class="splash-content">
+                <h1>推しを創ろう</h1>
+                <button id="closeSplash" class="splash-button">A4ペライチを読む</button>
+            </div>
+        </div>
+
+        <!-- 背景動画コンテナ -->
+        <div class="video-background">
+            <div class="video-overlay"></div>
+            <iframe src="https://www.youtube.com/embed/cNF2drcONWE?si=132eJ0K3kBWecfaJ&autoplay=1&mute=1&loop=1&playlist=cNF2drcONWE&controls=0&showinfo=0&modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/B3c5DJWKGqs?si=uGjS5l4RueRfAbKC&autoplay=1&mute=1&loop=1&playlist=B3c5DJWKGqs&controls=0&showinfo=0&modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/bw9IFEjJufw?si=lsQxwAR2w9cpIC47&autoplay=1&mute=1&loop=1&playlist=bw9IFEjJufw&controls=0&showinfo=0&modestbranding=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="tasuki-wrapper">
+            <header class="tasuki">
+                <p class="catchphrase">推しを創ろう</p>
+            </header>
+        </div>
+        
+        <main class="main-content">
+            <!-- ヘッダー以外のコンテンツはここに -->
+            <section>
+                <h2>「推し活」の2つのスタイル</h2>
+                <div class="comparison">
+                    <div class="item">
+                        <h3>よくある「推し活」 (受動的)</h3>
+                        <p>公式からの供給（グッズ、ライブ）を待ち、それを消費することが中心。また、二次創作も公式の制約の中で行われがちです。つまり、あくまで<strong>「消費者」</strong>としての喜びが主となります。</p>
+                    </div>
+                    <div class="item">
+                        <h3>ソフトウェアトーク (創造的)</h3>
+                        <p>明確な「公式」が希薄なため、解釈は無限大。絵が描けなくても、立ち絵素材や声を組み合わせ、<strong>自分の手で推しに「命を吹き込む」</strong>事ができます。これは<strong>「創作者」</strong>として楽しめます。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>「ソフトウェアトーク」とは？</h2>
+                <div class="content-with-image">
+                    <div class="text-part">
+                        <p>キャラのある音声合成ソフトのコンテンツ全般の呼称です。<br>
+                            創造性が特徴で、原作のようなものはほぼ存在せず、<br>
+                            自由に自分の解釈で創り、共有する事が出来ます。<br>
+                            <strong>推しを追うというのが従来の主な推し活とは違います。</strong></p>
+                    </div>
+                    <div class="image-part">
+                        <img id="openModalBtn" src="img_mainvisual_2.webp" alt="ソフトウェアトークのイメージ" class="pasted-image">
+                        <p class="image-caption">（画像をタップで詳しく）</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>柔軟性の高い推し活</h2>
+                <p>ソフトウェアトークがいかに自由か。私の推し動画をまとめました。</p>
+                <div class="comparison">
+                    <div class="item">
+                        <h3>アニメ</h3>
+                        <p>手書きアニメーション作品。個人製作ながら、高いクオリティの動画となっています。</p>
+                        <div class="video-embed">
+                            <script type="application/javascript" src="https://embed.nicovideo.jp/watch/sm44106237/script?w=300&h=120"></script><noscript><a href="https://www.nicovideo.jp/watch/sm44106237">【VOICEROID劇場】忠誠キャノンボール</a></noscript>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <h3>ストップモーション</h3>
+                        <p>「金平糖」という無機物に「声」を当て、キャラクターとして命を吹き込んだ作品。</p>
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/j-VFYKbAKCc?si=_yKXO-uMpzsBWlVC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <h3>動画以外の展開</h3>
+                        <p>キャラクター「概念」グッズ制作など、自分の「好き」をあらゆる形で追求できます。</p>
+                        <div class="video-embed">
+                            <iframe src="https://www.youtube.com/embed/5aL4YXnjQ6o?si=EXlxWTZfGgQxw45a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <h3>私の推しは「創造できる」文化そのもの</h3>
+                <p>「ソフトウェアトーク」という枠の中で、自分のやりたい表現を追求できる。「消費者」でなく「創作者」になれるこの体験こそが、私の「推し」です。</p>
+            </footer>
+        </main>
+        <!-- モーダルウィンドウ -->
+        <div id="detailModal" class="modal">
+            <div class="modal-content">
+            <div class="modal-content-wrapper">
+                <span class="close-button">&times;</span>
+                <h2>ソフトウェアトークのキャラクターたち</h2>
+                <p>この画像には、VOCALOID、VOICEROID、CeVIO、SynthesizerVなど、さまざまな音声合成ソフトのキャラクターが描かれています。初音ミクやずんだもん、可不(KAFU)など、人気のキャラクターから、少しマニアックなキャラクターまで様々です。これらのキャラクターは、ユーザーの手によって歌ったり、実況動画でおしゃべりしたりと、多彩な創作活動で活躍しています。</p>
+                <img src="img_mainvisual_2.webp" alt="ソフトウェアトークのイメージ" style="width:100%; border-radius: 5px;">
+                <div class="modal-slide active">
+                    <h2>ソフトウェアトークのキャラクターたち</h2>
+                    <p>この画像には、VOCALOID、VOICEROID、CeVIO、SynthesizerVなど、さまざまな音声合成ソフトのキャラクターが描かれています。初音ミクやずんだもん、可不(KAFU)など、人気のキャラクターから、少しマニアックなキャラクターまで様々です。これらのキャラクターは、ユーザーの手によって歌ったり、実況動画でおしゃべりしたりと、多彩な創作活動で活躍しています。</p>
+                    <img src="img_mainvisual_2.webp" alt="ソフトウェアトークのイメージ" style="width:100%; border-radius: 5px;">
+                </div>
+                <div class="modal-slide">
+                    <h2>1次創作もできる</h2>
+                    <p>ソフトウェアトークの文化では、公式設定が最小限であることが多く、キャラクターの性格や関係性はユーザーの解釈に委ねられています。そのため、既存の作品のパロディ（二次創作）だけでなく、自分だけのオリジナルストーリー（一次創作）も非常に盛んです。誰もが「自分の作品の原作者」になれる、創造性の高い趣味と言えます。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- A4枠外の注釈 -->
+    <p class="page-note">推し活電子ノート ※このWebページはA4サイズで作られています。</p>
+
+    <!-- Rough Notation ライブラリとアニメーション実行スクリプト -->
+    <script type="module">
+        import { annotate } from 'https://unpkg.com/rough-notation?module';
+
+        // アニメーションさせたい要素と設定をまとめる
+        const animationMap = new Map();
+
+        // h2要素にピンクの波線アンダーライン
+        document.querySelectorAll('h2, footer h3').forEach(el => {
+            const annotation = annotate(el, { 
+                type: 'underline', 
+                color: '#f9a8d4', // ピンク
+                strokeWidth: 3,
+                padding: 2,
+                iterations: 2,
+                multiline: true,
+            });
+            animationMap.set(el, annotation);
+        });
+
+        // strong要素に黄色いマーカー
+        document.querySelectorAll('strong:not(.tasuki-strong)').forEach(el => {
+            const annotation = annotate(el, { 
+                type: 'highlight', 
+                color: '#fde68a', // 黄色
+                iterations: 1,
+                multiline: true,
+            });
+            animationMap.set(el, annotation);
+        });
+
+        // 要素が画面に入ったらアニメーションを実行する
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const annotation = animationMap.get(entry.target);
+                    if (annotation) {
+                        annotation.show();
+                        observer.unobserve(entry.target); // 一度実行したら監視を解除
+                    }
+                }
+            });
+        });
+
+        // 全ての要素の監視を開始
+        animationMap.forEach((annotation, element) => {
+            observer.observe(element);
+        });
+
+        // --- モーダル処理 ---
+        const modal = document.getElementById('detailModal');
+        const openBtn = document.getElementById('openModalBtn');
+        const closeBtn = document.querySelector('.close-button');
+
+        // 画像をクリックしたらモーダルを表示
+        openBtn.onclick = function() {
+            modal.style.display = 'block';
+        }
+
+        // クローズボタン(×)をクリックしたらモーダルを非表示
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // モーダルの外側（背景）をクリックしたらモーダルを非表示
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // --- スプラッシュスクリーン処理 ---
+        const splash = document.getElementById('splash');
+        const closeSplashBtn = document.getElementById('closeSplash');
+
+        closeSplashBtn.onclick = function() {
+            splash.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

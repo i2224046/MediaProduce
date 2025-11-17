@@ -1,0 +1,394 @@
+/* --- スプラッシュスクリーンのスタイル --- */
+.splash {
+    position: absolute; /* 親要素(.page)を基準に配置 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fdfdfa;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.5s ease-out, visibility 0.5s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.splash.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.splash-content h1 {
+    font-family: 'Klee One', cursive;
+    font-weight: 600;
+    font-size: 3em;
+    color: #333;
+    line-height: 1.5;
+}
+
+.splash-button {
+    font-family: 'Klee One', cursive;
+    font-weight: 600;
+    font-size: 1.2em;
+    padding: 10px 30px;
+    margin-top: 30px;
+    border: 2px solid #333;
+    background-color: transparent;
+    cursor: pointer;
+}
+/* 変数定義: A4サイズ */
+:root {
+    --a4-width: 210mm;
+    --a4-height: 297mm;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Klee One', cursive;
+}
+
+/* ページコンテナの基本スタイル */
+.page {
+    width: var(--a4-width);
+    height: var(--a4-height);
+    box-sizing: border-box; /* サイズ計算を容易にする */
+    overflow: hidden; /* コンテンツのはみ出しを制御 */
+    position: relative; /* 子要素のabsoluteの基準点にする */
+
+    /* 紙の質感を追加 */
+    background-color: #fdfdfa; /* ベースのクリーム色 */
+    background-image: 
+        linear-gradient(rgba(210, 200, 180, 0.1) 1px, transparent 2px),
+        linear-gradient(90deg, rgba(210, 200, 180, 0.1) 1px, transparent 1px);
+    background-size: 2px 2px;
+
+    /* 必要に応じてパディング（内側の余白）を設定 */
+    /* padding: 20mm; */
+}
+
+
+/* ---------------------------------- */
+/* 画面表示用 (確認用) */
+/* ---------------------------------- */
+@media screen {
+    body {
+        background-color: #f0f0f0; /* グレーの背景 */
+        display: flex;
+        flex-direction: column; /* 要素を縦に並べる */
+        justify-content: center;
+        align-items: center;
+        padding: 20px; /* 画面上の余白 */
+    }
+
+    .page {
+        /* background-color: #ffffff; 紙の色 */
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); /* 紙の影 */
+        border: 1px solid #ccc; /* 境界線 */
+    }
+}
+
+
+/* ---------------------------------- */
+/* 印刷用 */
+/* ---------------------------------- */
+@media print {
+    
+    /* 印刷ダイアログのデフォルト設定 */
+    @page {
+        size: A4 portrait; /* A4 縦向き */
+        margin: 0; /* ブラウザのデフォルトマージンを削除 */
+    }
+
+    /* 印刷時は画面用のスタイルをリセット */
+    body {
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .page {
+        width: var(--a4-width);
+        height: var(--a4-height);
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        /* overflow: visible; 印刷時ははみ出しても表示 */
+    }
+
+    /* 印刷したくない要素を非表示にする (例: .no-print クラス) */
+    /* .no-print { display: none; } */
+}
+
+/* A4枠外の注釈 */
+.page-note {
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+    margin-top: 10px;
+}
+@media print {
+    .page-note {
+        display: none; /* 印刷時は非表示 */
+    }
+    .splash {
+        display: none; /* スプラッシュスクリーンも印刷しない */
+    }
+}
+.main-content {
+    /* ポスター全体の余白 */
+    padding: 5mm;
+    /* タスキと重ならないように上部の余白を多めに設定 */
+    padding-top:0px;
+    position: relative; /* 子要素の基準点 */
+    margin-top: 50px; /* 上の線との隙間を確保 */
+    border-top: 2px solid #333; /* 下側の線 */
+    border-bottom: 3px solid #333; /* フッター下部の線 */
+    padding-bottom: 20px; /* 線とページ下部の間の余白 */
+    z-index: 2; /* 動画の上に配置 */
+}
+
+.main-content::before {
+    content: '';
+    position: absolute;
+    top: -40px; /* margin-topと同じ値のネガティブマージンで上に配置 */
+    left: 0;
+    right: 0;
+    height: 2px; /* 上側の線の太さ */
+    background-color: #333;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #444;
+    font-weight: 600; /* Klee OneのSemiBold */
+    margin-bottom: 0.5em;
+}
+
+h3 {
+    font-size: 1.3em;
+    border-bottom-style: dotted;
+    font-weight: 600; /* Klee OneのSemiBold */
+}
+
+.comparison {
+    display: flex;
+    gap: 12px; /* カラム間の隙間 */
+    margin-top: 0.2em;
+}
+
+.comparison .item {
+    flex: 1; /* カラム幅を均等にする */
+    position: relative; /* タイトルを絶対配置するための基準点 */
+    border: 4px dotted #666; /* 点線の枠 */
+    padding: 12px ;
+    padding-top: 1em; /* タイトルとコンテンツが重ならないように上部に余白を確保 */
+    border-radius: 40px;
+}
+
+.comparison .item h3 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 枠線の中央に配置 */
+    background-color: rgba(255, 255, 255, 0.9); /* 背景色を親要素に合わせ、下の線を隠す */
+    padding: 0 20px; /* テキストの左右に余白を持たせる */
+    white-space: nowrap; /* テキストが折り返されないようにする */
+    margin: 0;
+    border-bottom: none; /* 汎用のh3スタイルを上書き */
+}
+
+.catchphrase {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 0.5em 0;
+}
+
+.note {
+    text-align: right;
+    font-size: 0.8em;
+    color: #888;
+}
+
+/* マーカー風のスタイル */
+strong {
+    font-weight: 600; /* Klee Oneの太字を維持 */
+    /* JavaScriptで描画するためスタイルをリセット */
+}
+
+blockquote {
+    background-color: #f9f9f9;
+    border-left: 5px solid #ccc;
+    padding: 10px;
+    margin-left: 0;
+}
+
+.media-note {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 8px;
+    text-align: center;
+    background-color: #e9e9e9;
+    padding: 5px;
+    border-radius: 3px;
+}
+.video-embed {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.video-embed iframe {
+    max-width: 100%;
+    border: none;
+    aspect-ratio: 16 / 9;
+}
+
+footer {
+    /* margin-top: 30px; */
+    padding-top: 20px; /* コンテンツとフッタータイトルの間の余白 */
+    text-align: left;
+}
+
+footer h3 {
+    border-bottom: none; /* JavaScriptで装飾するため、デフォルトの線を削除 */
+}
+
+/* --- タスキのデザイン --- */
+.tasuki-wrapper {
+    position: absolute;
+    top: 190px; /* 上からの位置 */
+    right: -360px; /* 右からの位置 */
+    width: 1000px; /* タスキの幅 */
+    transform: rotate(20deg); /* タスキの角度 */
+    transform-origin: top right; /* 回転の基点 */
+    z-index: 10; /* 動画の上に配置 */
+}
+
+.tasuki {
+    background-color: rgba(253, 244, 203, 0.97); /* マスキングテープ風の背景色 */
+    color: #111; /* タスキの文字色 */
+    padding: 10px 40px; /* 上下左右の余白を調整 */
+    text-align: center;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    /* filter: url(#masking-tape-filter); SVGフィルターを適用して縁をギザギザにする */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* 影を追加して立体感を出す */
+}
+
+.tasuki .catchphrase {
+    margin: 0;
+    font-family: 'Klee One', cursive; /* 明朝体に変更 */
+    font-weight: 800; /* 太字に設定 */
+}
+
+/* タスキ内のstrongはJSではなくCSSでマーカーを引く */
+.tasuki-strong {
+    background: linear-gradient(transparent 60%, #fde68a 60%);
+    padding: 0 2px;
+}
+
+/* 画像付きコンテンツのレイアウト */
+.content-with-image {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.text-part {
+    flex: 3; /* テキスト部分の幅を広めに */
+}
+
+.image-part {
+    flex: 2; /* 画像部分の幅 */
+    text-align: center;
+}
+
+.pasted-image {
+    max-width: 90%;
+    aspect-ratio: 4 / 3; /* アスペクト比を4:3に設定 */
+    object-fit: cover; /* はみ出した部分をトリミング */
+    border: 5px solid white;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    transform: rotate(8deg); /* 少し傾ける */
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer; /* クリックできることを示す */
+}
+
+.pasted-image:hover {
+    transform: rotate(5deg) scale(1.05); /* ホバー時に少し拡大 */
+}
+
+.image-caption {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 8px;
+}
+
+/* --- モーダルウィンドウのスタイル --- */
+.modal {
+    display: none; /* デフォルトでは非表示 */
+    position: absolute; /* 親要素(.page)を基準に配置 */
+    z-index: 100; /* 最前面に表示 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* コンテンツが多ければスクロール */
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(3px); /* 背景をぼかす */
+}
+
+.modal-content {
+    background-color: #fdfdfa;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- 背景動画 --- */
+.video-background {
+    position: absolute;
+    top: -100px;
+    left: 0; right: 0;
+    height: 1340px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-background iframe {
+    flex: 1; /* 高さを均等に分割 */
+    width: 100%;
+    border: none;
+    object-fit: cover;
+    filter: blur(4px); /* 動画にブラー（ぼかし）をかける */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* 半透明の白を重ねる */
+    z-index: 1; /* 動画の上に配置 */
+}
